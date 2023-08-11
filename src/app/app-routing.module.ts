@@ -5,8 +5,8 @@ import { ByCapitalComponent } from './countries/components/by-capital/by-capital
 const routes: Route[] =
 [
     {
-        path: "**",
-        redirectTo: "country"
+        path: '**',
+        redirectTo: 'Country'
     }
 ]
 
