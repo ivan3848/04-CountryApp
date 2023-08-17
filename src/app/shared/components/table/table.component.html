@@ -1,0 +1,30 @@
+
+<div
+  *ngIf="data.length == 0; else table"
+  class="alert alert-warning center"
+  role="alert">
+  No results found!
+</div>
+
+<ng-template #table>
+  <table
+    *ngFor="let item of data"
+    class="table">
+    <thead>
+      <tr>
+        <th
+        *ngFor="let header of data"
+        scope="col">{{ item.header }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let headerList of item.headerItemList">
+        <td>{{ headerList }}</td>
+      </tr>
+    </tbody>
+  </table>
+</ng-template>
+
+<p>
+  {{data | json}}
+</p>

@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
-import { CountryModule } from './countries/country.module';
-import { SharedModule } from './shared/components/side-bar/shared.module';
+import { CountriesModule } from './countries/countries.module';
+import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
 
@@ -14,10 +15,11 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule,
     AppRoutingModule,
-    CountryModule,
-    SharedModule
+    SharedModule,
+    CountriesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

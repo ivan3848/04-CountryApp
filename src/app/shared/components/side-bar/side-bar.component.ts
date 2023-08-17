@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SideBarOption } from 'src/app/shared/components/side-bar/interfaces/SideBarOption.Interface';
+import { SideBarOption } from 'src/app/shared/interfaces/SideBarOption.Interface';
 
 @Component({
   selector: 'shared-side-bar',
@@ -11,5 +11,17 @@ export class SideBarComponent {
 
   public options: SideBarOption[] =
   [
+    {
+      path: '/countries/by-capital',
+      option: 'Capital'
+    },
+    {
+      path: '/countries/by-region',
+      option: 'Region'
+    },
+    {
+      path: '/countries/by-country',
+      option: 'Country'
+    }
   ];
 }
