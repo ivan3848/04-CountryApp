@@ -6,7 +6,6 @@ import { ByCapitalPageComponent } from './pages/by-capital-page/by-capital-page.
 import { ByRegionPageComponent } from './pages/by-region-page/by-region-page.component';
 import { SharedModule } from '../shared/shared.module';
 import { CommonModule } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
     imports:

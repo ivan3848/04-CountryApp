@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Table } from '../../interfaces/Table.Interface';
+import { CountryResponse } from 'src/app/countries/interfaces/countryResponse.interface';
 
 @Component({
   selector: 'shared-table',
@@ -10,5 +11,6 @@ import { Table } from '../../interfaces/Table.Interface';
 export class TableComponent {
 
   @Input()
-  public data: Table[] = [];
+  public data: CountryResponse[] = [];
+
 }

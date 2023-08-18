@@ -1,6 +1,12 @@
-<h2>
+<h2 class="center">
   Countries By Country
 </h2>
 <hr>
 
-<shared-search-box placeholder="Search by country..."></shared-search-box>
+<div class="row mb-3">
+  <shared-search-box placeholder="Search by country..." (onChange)="searchByCountry($event)"></shared-search-box>
+</div>
+
+<div class="row">
+  <shared-table [data]="countryData"></shared-table>
+</div>
