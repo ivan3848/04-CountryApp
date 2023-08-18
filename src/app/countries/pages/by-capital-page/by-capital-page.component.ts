@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CountriesService } from '../../services/countries.service';
 import { Table } from 'src/app/shared/interfaces/Table.Interface';
+import { CountryResponse } from '../../interfaces/countryResponse.interface';
 
 @Component({
   selector: 'countries-by-capital-page',
@@ -12,48 +13,58 @@ export class ByCapitalPageComponent {
   constructor(private countriesService: CountriesService){}
 
   public tableData: Table[] = [];
+  public countryData: CountryResponse[] = [];
 
-  public getTerm( term: string){
+  public searchByCapital( term: string){
     this.tableData = [];
-    this.countriesService.getDataForCapital(term);
-    this.mapCuntriesToTable();
-  }
-
-  public mapCuntriesToTable(){
     let itemsOfHeader: string[] = [];
-    console.log(this.countriesService.data);
 
-    this.countriesService.data.some(item => {
+    this.countriesService.getDataFromApi('capital', term)
+      .subscribe(result => this.countryData = result);
+
+    this.countryData.some(item => {
         itemsOfHeader.push(item.flag);
-        console.log(item);
-      })
-    this.tableData.push({
-      header: 'flag',
-      headerItemList: itemsOfHeader
-    });
+      });
 
-    console.log(itemsOfHeader);
-
-    itemsOfHeader = [];
-    this.countriesService.data.some(item => itemsOfHeader.push(item.name.common))
     this.tableData.push({
-      header: 'Country',
+      header: 'Flag',
       headerItemList: itemsOfHeader
     });
 
     itemsOfHeader = [];
-    this.countriesService.data.map(item => itemsOfHeader.push(item.capital[0]))
+
+    this.countryData.some(item => {
+      itemsOfHeader.push(item.capital.toString());
+    });
+
     this.tableData.push({
       header: 'Capital',
       headerItemList: itemsOfHeader
     });
 
     itemsOfHeader = [];
-    this.countriesService.data.map(item => itemsOfHeader.push(item.population.toString()))
+
+    this.countryData.some(item => {
+      itemsOfHeader.push(item.name.common);
+    });
+
+    this.tableData.push({
+      header: 'Country',
+      headerItemList: itemsOfHeader
+    });
+
+    itemsOfHeader = [];
+
+    this.countryData.some(item => {
+      itemsOfHeader.push(item.population.toString());
+    });
+
     this.tableData.push({
       header: 'Population',
       headerItemList: itemsOfHeader
     });
+
+    console.log(this.tableData);
 
   }
 

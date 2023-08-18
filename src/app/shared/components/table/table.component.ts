@@ -11,7 +11,4 @@ export class TableComponent {
 
   @Input()
   public data: Table[] = [];
-
-  public headerItemList: string[] = [];
-
 }

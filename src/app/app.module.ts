@@ -8,6 +8,7 @@ import { CountriesModule } from './countries/countries.module';
 import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [

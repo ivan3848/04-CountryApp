@@ -8,23 +8,24 @@
 
 <ng-template #table>
   <table
-    *ngFor="let item of data"
-    class="table">
+    class="table table-bordered table-hover">
     <thead>
       <tr>
         <th
-        *ngFor="let header of data"
+        *ngFor="let item of data;"
         scope="col">{{ item.header }}</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let headerList of item.headerItemList">
-        <td>{{ headerList }}</td>
-      </tr>
+      <td
+        *ngFor="let item of data; index as i;">
+          <tr
+           *ngFor="let headerList of data[i].headerItemList"
+           class="w-100">
+             {{ headerList }}
+          </tr>
+      </td>
     </tbody>
   </table>
 </ng-template>
 
-<p>
-  {{data | json}}
-</p>

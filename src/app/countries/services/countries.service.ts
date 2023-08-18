@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CountryResponse } from '../interfaces/countryResponse.interface';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,24 +9,12 @@ import { CountryResponse } from '../interfaces/countryResponse.interface';
 
 
 export class CountriesService {
-  private url: string = 'https://restcountries.com/v3.1/';
+  private apiUrl: string = 'https://restcountries.com/v3.1/';
 
   constructor(private http: HttpClient) { }
 
-  private _data: CountryResponse[] = [];
-
-  public get data(): CountryResponse[]{
-    return [...this._data];
-  }
-
-  public getDataForCapital( term: string){
-    this.getDataFromApi('capital', term);
-  }
-
-  private getDataFromApi( filter: string, term: string){
-    let urlComplete: string = `${this.url}/${filter}/${term}`;
-
-    this.http.get<CountryResponse>(urlComplete)
-      .subscribe(result => this._data.push(result));
+  public getDataFromApi( filter: string, term: string): Observable<CountryResponse[]>{
+    const url: string = `${this.apiUrl}/${filter}/${term}`;
+    return this.http.get<CountryResponse[]>( url );
   }
 }

@@ -12,7 +12,8 @@ import { BrowserModule } from '@angular/platform-browser';
     imports:
     [
       CountriesRoutingModule,
-      SharedModule
+      SharedModule,
+      CommonModule
     ],
     declarations:
     [
