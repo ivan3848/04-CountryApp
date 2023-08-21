@@ -18,4 +18,6 @@ export class ByCountryPageComponent {
       .subscribe(resp => this.countryData = resp);
   }
 
+  
+
 }
