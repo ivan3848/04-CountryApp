@@ -5,6 +5,7 @@ import { SearchBoxComponent } from './components/search-box/search-box.component
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { TableComponent } from './components/table/table.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
     imports:
@@ -16,13 +17,15 @@ import { TableComponent } from './components/table/table.component';
     [
         SideBarComponent,
         SearchBoxComponent,
-        TableComponent
+        TableComponent,
+        LoaderComponent
     ],
     declarations:
     [
         SideBarComponent,
         SearchBoxComponent,
-        TableComponent
+        TableComponent,
+        LoaderComponent
     ],
     providers: [],
 })

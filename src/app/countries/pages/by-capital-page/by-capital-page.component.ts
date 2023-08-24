@@ -19,11 +19,8 @@ export class ByCapitalPageComponent {
     this.tableData = [];
     let itemsOfHeader: string[] = [];
 
-    this.countriesService.getDataFromApi('capital', term)
+    this.countriesService.getCountryRequest('capital', term)
       .subscribe(result => this.countryData = result);
-
-      alert(this.countryData);
-      console.log(this.countryData);
 
     this.countryData.some(item => {
         itemsOfHeader.push(item.flag);

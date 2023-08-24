@@ -14,10 +14,10 @@ export class ByCountryPageComponent {
   public countryData: CountryResponse[] = [];
 
   public searchByCountry( term: string){
-    this.countriesService.getDataFromApi('name', term)
+    this.countriesService.getCountryRequest('name', term)
       .subscribe(resp => this.countryData = resp);
   }
 
-  
+
 
 }

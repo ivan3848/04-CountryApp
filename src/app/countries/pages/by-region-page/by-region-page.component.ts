@@ -14,7 +14,7 @@ export class ByRegionPageComponent {
   public countryData: CountryResponse[] = [];
 
   public searchByRegion( term: string){
-    this.countriesService.getDataFromApi('region', term)
+    this.countriesService.getCountryRequest('region', term)
       .subscribe(resp => this.countryData = resp)
   }
 
