@@ -8,25 +8,25 @@ import { TableComponent } from './components/table/table.component';
 import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
-    imports:
+  imports:
     [
       CommonModule,
       RouterModule,
     ],
-    exports:
+  exports:
     [
-        SideBarComponent,
-        SearchBoxComponent,
-        TableComponent,
-        LoaderComponent
+      SideBarComponent,
+      SearchBoxComponent,
+      TableComponent,
+      LoaderComponent
     ],
-    declarations:
+  declarations:
     [
-        SideBarComponent,
-        SearchBoxComponent,
-        TableComponent,
-        LoaderComponent
+      SideBarComponent,
+      SearchBoxComponent,
+      TableComponent,
+      LoaderComponent
     ],
-    providers: [],
+  providers: [],
 })
 export class SharedModule { }

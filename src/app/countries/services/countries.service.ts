@@ -13,13 +13,12 @@ export class CountriesService {
 
   constructor(private http: HttpClient) { }
 
-  public getCountryRequest( filter: string, term: string): Observable<CountryResponse[]>{
+  public getCountryRequest(filter: string, term: string): Observable<CountryResponse[]> {
     const url: string = `${this.apiUrl}/${filter}/${term}`;
 
-    return this.http.get<CountryResponse[]>( url )
+    return this.http.get<CountryResponse[]>(url)
       .pipe(
-        catchError(error => of([])),
-        delay(500)
+        catchError(error => of([]))
       );
   }
 

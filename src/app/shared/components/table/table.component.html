@@ -1,13 +1,15 @@
-
 <div
   *ngIf="data.length == 0; else table"
   class="alert alert-warning center"
-  role="alert">
+  role="alert"
+>
   No results found!
 </div>
 
 <ng-template #table>
-  <table class="table table-bordered table-hover table-striped align-middle center">
+  <table
+    class="table table-bordered table-hover table-striped align-middle center"
+  >
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -20,11 +22,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of data; index as i;">
+      <tr *ngFor="let item of data; index as i">
         <th scope="row">{{ i + 1 }}</th>
-        <td> <img [src]="item.flags.svg"
-          [alt]="item.flags.alt"
-          title="{{item.name.common + ' flag'}}">
+        <td>
+          <img
+            [src]="item.flags.svg"
+            [alt]="item.flags.alt"
+            title="{{ item.name.common + ' flag' }}"
+          />
         </td>
         <td>{{ item.name.common }}</td>
         <td>{{ item.capital }}</td>
@@ -32,13 +37,13 @@
         <td>{{ item.population | number }}</td>
         <td>
           <a
-            [routerLink]="[ '/countries/by/', item.cca3]"
-            class="btn btn-outline-primary">
-             Details
+            [routerLink]="['/countries/by/', item.cca3]"
+            class="btn btn-outline-primary"
+          >
+            Details
           </a>
         </td>
       </tr>
     </tbody>
   </table>
 </ng-template>
-

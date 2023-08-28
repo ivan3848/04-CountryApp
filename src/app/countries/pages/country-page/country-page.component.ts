@@ -18,24 +18,23 @@ export class CountryPageComponent implements OnInit {
     private activeRoute: ActivatedRoute,
     private router: Router,
     private countryService: CountriesService
-  ){}
+  ) { }
 
   ngOnInit(): void {
     this.activeRoute.params
       .pipe(
-        switchMap( ({ code }) => this.countryService.getCountryRequest('alpha', code))
+        switchMap(({ code }) => this.countryService.getCountryRequest('alpha', code))
       )
-      .subscribe( country =>
-        {
-          console.log(country);
-          if(!country.length){
-            return this.router.navigateByUrl('/countries/');
-          }
+      .subscribe(country => {
+        console.log(country);
+        if (!country.length) {
+          return this.router.navigateByUrl('/countries/');
+        }
 
-          else{
-            return this.country = country[0];
-          }
-  });
+        else {
+          return this.country = country[0];
+        }
+      });
 
   }
 
