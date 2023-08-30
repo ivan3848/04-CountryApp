@@ -26,7 +26,6 @@ export class CountryPageComponent implements OnInit {
         switchMap(({ code }) => this.countryService.getCountryRequest('alpha', code))
       )
       .subscribe(country => {
-        console.log(country);
         if (!country.length) {
           return this.router.navigateByUrl('/countries/');
         }

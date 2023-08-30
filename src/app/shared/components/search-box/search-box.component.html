@@ -1,4 +1,10 @@
-
 <div class="col">
-  <input class="form-control center" (keyup)="sendSearchTerm()" #txtSearch type="text" [placeholder]=placeholder>
+  <input
+    class="form-control center"
+    (keyup)="sendSearchTerm()"
+    #txtSearch
+    type="text"
+    [placeholder]="placeholder"
+    [value]="term"
+  />
 </div>
